@@ -13,7 +13,17 @@ class App extends React.Component {
     {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},],
   filter:""
   }
-
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+    localStorage.setItem("contacts", JSON.stringify(this.state.contacts))
+  }
+  }
+  componentDidMount() {
+    const contacts = JSON.parse(localStorage.getItem("contacts"))
+    if (contacts) {
+      this.setState({contacts })
+    }
+  }
     onGetContact = user => {
       const { contacts } = this.state  
       if (contacts.some(contact => contact.name === user.name)) {
