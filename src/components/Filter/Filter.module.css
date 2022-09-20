@@ -1,0 +1,12 @@
+.holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input {
+
+    background-color: rgba(195, 195, 253, 0.89);
+    height: 40px;
+
+}
